@@ -1,0 +1,146 @@
+# ==========================================
+# Intel Quartus Prime generated files
+# ==========================================
+
+db/
+incremental_db/
+output_files/
+simulation/
+greybox_tmp/
+hc_output/
+hps_isw_handoff/
+qdb/
+qsys_edit/
+ip/
+ip_generated/
+
+*.qws
+*.qdf
+*.qpf.bak
+*.qsf.bak
+*.smsg
+*.rpt
+*.summary
+*.done
+*.jdi
+*.pin
+*.sof
+*.pof
+*.rbf
+*.rpd
+*.cdf
+*.qws
+*.qws.bak
+*.qsys-edit
+*.qsys_edit
+*.qarlog
+*.qar
+*.qdb
+*.qdz
+*.sld
+*.sopcinfo
+*.jic
+*.map
+*.fit
+*.sta
+*.asm
+
+# Keep explicitly selected reports
+!quartus/reports/
+!quartus/reports/**/*.rpt
+!quartus/reports/**/*.summary
+
+# ==========================================
+# ModelSim / Questa generated files
+# ==========================================
+
+work/
+modelsim.ini
+transcript
+vsim.wlf
+*.wlf
+*.vstf
+*.log
+*.jou
+*.ucdb
+coverage/
+covhtmlreport/
+waveforms/
+
+# ==========================================
+# Nios II / Eclipse generated files
+# ==========================================
+
+.settings/
+.metadata/
+Debug/
+Release/
+*.elf
+*.obj
+*.o
+*.a
+*.map
+*.hex
+*.flash
+*.bin
+*.srec
+*.elf.objdump
+*.elf.size
+
+# ==========================================
+# MATLAB / Octave generated files
+# ==========================================
+
+*.asv
+*.autosave
+*.m~
+*.mat
+slprj/
+codegen/
+*.slxc
+*.mex*
+octave-workspace
+
+# Generated test vectors and results
+tb/data/generated/
+matlab/results/
+
+# ==========================================
+# Python generated files
+# ==========================================
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# ==========================================
+# Java generated files
+# ==========================================
+
+*.class
+target/
+.gradle/
+build/
+
+# ==========================================
+# IDE and operating-system files
+# ==========================================
+
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+~$*
