@@ -175,10 +175,11 @@ The intended sequence is:
 
 **Current milestone**
 
+- ✅ System requirements and architecture completed
 - ✅ Common measurement package implemented
-- ✅ Reusable 64-bit timestamp counter implemented
-- ✅ Self-checking ModelSim testbench completed
-- ✅ Functional simulation successfully verified
+- ✅ 64-bit timestamp counter implemented and verified
+- ✅ Measurement record builder implemented
+- In-progress: FIFO buffering and Avalon-MM interface in progress
 
 Next steps include measurement record generation, FIFO buffering, and Avalon-MM integration.
 
