@@ -138,6 +138,33 @@ The waveform below shows the timestamp capture operation. The free-running count
 
 ![Timestamp Capture Waveform](docs/images/timestamp_capture_waveform.png)
 
+---
+
+## Measurement Record Builder Verification
+
+The measurement record builder captures timestamped measurement information and assembles it into a structured 112-bit measurement record for downstream buffering and processor transfer.
+
+The module was verified using a self-checking VHDL testbench in ModelSim.
+
+Verification includes:
+
+- Reset behavior
+- Measurement record capture
+- Positive and negative sample handling
+- Packed record generation
+- Pack/unpack consistency
+- Single-cycle `record_valid` pulse
+
+All verification tests completed successfully with no assertion failures.
+
+### ModelSim Verification
+
+![Measurement Record Builder Verification](docs/images/measurement_record_builder_simulation.png)
+
+![Measurement Record Capture Waveform](docs/images/measurement_record_capture_waveform.png)
+
+
+--- 
 
 ## Repository Structure
 
