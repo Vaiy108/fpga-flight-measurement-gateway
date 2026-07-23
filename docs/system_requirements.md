@@ -373,6 +373,28 @@ Features that are planned but not implemented shall not be presented as complete
 
 At this stage, all listed requirements have the status:
 
-**Defined — implementation not yet started**
+| Requirement area    | Status                         |
+| ------------------- | ------------------------------ |
+| Timestamping        | Defined                        |
+| Measurement record  | Defined                        |
+| FIFO                | Defined                        |
+| Avalon-MM           | Proven in related DE10 project |
+| Nios II             | Proven in related DE10 project |
+| Embedded C          | Proven in related DE10 project |
+| Hardware validation | Proven in related DE10 project |
+| Gateway integration | Not yet implemented            |
 
-Requirement status will be updated as the corresponding design, verification, and hardware evidence are committed.
+
+Some technology areas, including Avalon-MM peripheral development, Nios II integration, Embedded C firmware, Quartus implementation, and physical DE10-Lite validation, have already been demonstrated in the related [`intel-fpga-de10-dsp-measurement`](https://github.com/Vaiy108/intel-fpga-de10-dsp-measurement) project.
+
+Within this repository, those capabilities retain the status **Proven in related project** until they are integrated into the flight-measurement gateway architecture.
+
+The statuses used in this project are:
+
+* **Defined** — requirement documented, implementation not started
+* **In progress** — implementation or verification currently underway
+* **Implemented** — RTL or software completed in this repository
+* **Verified** — requirement covered by simulation or automated test
+* **Hardware validated** — demonstrated on the target FPGA platform
+* **Proven in related project** — capability demonstrated in the linked DE10 project but not yet integrated here
+

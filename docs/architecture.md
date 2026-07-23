@@ -119,6 +119,110 @@ This staged approach reduces integration risk and provides a clear verification 
 
 ---
 
+## 3.1 Reuse of Existing DE10 Platform
+
+The FPGA Flight Measurement Gateway is designed as an extension of the hardware/software co-design techniques demonstrated in the related [`intel-fpga-de10-dsp-measurement`](https://github.com/Vaiy108/intel-fpga-de10-dsp-measurement) project.
+
+The previous project successfully demonstrated:
+
+* Intel Platform Designer (Qsys)
+* Nios II soft processor integration
+* Custom Avalon-MM peripheral development
+* Embedded C firmware
+* MATLAB and ModelSim verification
+* Quartus Prime synthesis and timing closure
+* FPGA programming and hardware validation on the Terasic DE10-Lite platform
+
+Rather than duplicating those capabilities immediately, this repository first focuses on implementing the reusable measurement front-end architecture.
+
+The initial implementation therefore concentrates on:
+
+* deterministic timestamp generation
+* measurement-record formation
+* sequence tracking
+* measurement FIFO buffering
+* diagnostic infrastructure
+
+After these reusable modules have been individually verified, they will be integrated with an Avalon-MM interface and the proven Nios II hardware/software architecture developed in the related DE10 project.
+
+This staged approach keeps the repository modular, avoids unnecessary duplication, and reflects a realistic FPGA system-development workflow where reusable infrastructure is extended with application-specific functionality.
+
+## 3.2 Project Evolution
+
+The FPGA Flight Measurement Gateway evolves from the hardware/software co-design platform demonstrated in the related [`intel-fpga-de10-dsp-measurement`](https://github.com/Vaiy108/intel-fpga-de10-dsp-measurement) project.
+
+The earlier project proves the processor, bus, DSP, firmware, and FPGA deployment workflow. The present project extends that foundation with the timing, buffering, diagnostics, and data-management functions required for a more complete measurement system.
+
+```mermaid
+flowchart LR
+
+    subgraph BASE["Validated DE10 Hardware/Software Platform"]
+        MATLAB["MATLAB Reference Model"]
+        FIR["VHDL FIR Accelerator"]
+        AVALON["Custom Avalon-MM Peripheral"]
+        NIOS["Nios II Processor"]
+        FW["Embedded C Firmware"]
+        JTAG["JTAG UART Output"]
+        HW["DE10-Lite Hardware Validation"]
+
+        MATLAB --> FIR
+        FIR --> AVALON
+        AVALON <--> NIOS
+        NIOS --> FW
+        FW --> JTAG
+        JTAG --> HW
+    end
+
+    subgraph EXT["Flight Measurement Gateway Extensions"]
+        ACQ["Measurement Acquisition Interfaces"]
+        TIME["64-bit Deterministic Timestamping"]
+        RECORD["Structured Measurement Records"]
+        SEQ["Channel and Sequence Tracking"]
+        DSP["Fixed-Point DSP Processing"]
+        FIFO["Measurement FIFO Buffering"]
+        DIAG["Diagnostic Flags and Counters"]
+        BUS["Extended Avalon-MM Register Interface"]
+        TELEMETRY["UART / Ethernet Telemetry"]
+    end
+
+    BASE -->|Proven platform reused and extended| EXT
+
+    ACQ --> TIME
+    TIME --> RECORD
+    SEQ --> RECORD
+    RECORD --> DSP
+    DSP --> FIFO
+    DIAG --> RECORD
+    FIFO --> BUS
+    BUS --> TELEMETRY
+```
+
+### Evolution Summary
+
+The development progression is:
+
+```text
+Hardware-accelerated FIR processing
+        |
+        v
+Validated Avalon-MM and Nios II integration
+        |
+        v
+Deterministic timestamped measurement acquisition
+        |
+        v
+Structured and buffered measurement records
+        |
+        v
+Diagnostics, telemetry, and complete system validation
+```
+
+This evolution avoids duplicating already validated processor and bus-integration work while adding the system-level functionality required for a reusable FPGA-based airborne measurement architecture.
+
+---
+
+
+
 ## 4. Module Decomposition
 
 ### 4.1 Common Package

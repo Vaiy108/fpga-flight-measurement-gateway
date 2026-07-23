@@ -19,6 +19,37 @@ The extended project focuses on:
 * timing analysis
 * laboratory validation
 
+## Relationship to the Intel DE10 DSP Measurement Project
+
+This project builds upon the FPGA hardware/software co-design platform demonstrated in [`intel-fpga-de10-dsp-measurement`](https://github.com/Vaiy108/intel-fpga-de10-dsp-measurement).
+
+The DE10 project provides a completed and hardware-validated implementation of:
+
+* Intel Platform Designer integration
+* Nios II embedded processing
+* a custom Avalon-MM VHDL peripheral
+* Embedded C firmware
+* MATLAB and ModelSim verification
+* Quartus synthesis and timing closure
+* physical execution on a Terasic DE10-Lite FPGA
+
+The FPGA Flight Measurement Gateway extends that foundation toward a reusable airborne measurement architecture.
+
+Its primary additional focus is:
+
+* deterministic 64-bit timestamping
+* channel identification
+* structured measurement records
+* sequence tracking
+* status and diagnostic information
+* FIFO-based measurement buffering
+* scalable acquisition interfaces
+* system-level verification and requirement traceability
+
+The two projects demonstrate complementary parts of a complete FPGA-based measurement system rather than duplicate implementations.
+
+--- 
+
 ## Planned System Features
 
 * Sample-based measurement input
