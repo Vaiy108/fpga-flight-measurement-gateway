@@ -111,6 +111,34 @@ Nios II Embedded Firmware
 UART / Ethernet Host Interface
 ```
 
+## Timestamp Counter Verification
+
+The first RTL module implemented in this project is a reusable 64-bit timestamp counter used to provide deterministic timestamps for every acquired measurement.
+
+The module was verified using a self-checking VHDL testbench in ModelSim.
+
+Verification includes:
+
+- Reset behavior
+- Counter increment while enabled
+- Counter hold while disabled
+- Timestamp capture
+- Single-cycle `capture_valid` pulse
+- Counter continuity after capture
+
+All verification tests completed successfully with no assertion failures.
+
+### ModelSim Verification
+
+![Timestamp Counter Verification](docs/images/timestamp_counter_simulation.png)
+
+### Capture Event Waveform
+
+The waveform below shows the timestamp capture operation. The free-running counter continues to increment while the captured timestamp is latched for downstream processing.
+
+![Timestamp Capture Waveform](docs/images/timestamp_capture_waveform.png)
+
+
 ## Repository Structure
 
 ```text
@@ -145,9 +173,14 @@ The intended sequence is:
 
 ## Current Status
 
-**Phase 1 — Requirements and architecture definition**
+**Current milestone**
 
-No completed hardware functionality is claimed until the corresponding RTL, testbench, synthesis report, and hardware evidence are added to the repository.
+- ✅ Common measurement package implemented
+- ✅ Reusable 64-bit timestamp counter implemented
+- ✅ Self-checking ModelSim testbench completed
+- ✅ Functional simulation successfully verified
+
+Next steps include measurement record generation, FIFO buffering, and Avalon-MM integration.
 
 ## Project Origin
 
